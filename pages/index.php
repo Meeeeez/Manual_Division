@@ -18,7 +18,13 @@
         </form>
     </div>
     <div id="calculation_field" class="calculation_field">
-
+        <?php
+        if(!empty($_GET['content'])){
+            if($_GET['content'] == 'solution') {
+                include("../js/calculate.php");
+            }
+        }
+        ?>
     </div>
 </div>
 
