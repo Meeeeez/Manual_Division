@@ -19,13 +19,15 @@
         </div>
     </div>
     <div id="calculation_field" class="calculation_field">
-        <span id="dividendTemp"></span>
+        <span class="dividendTemp" id="dividendTemp"></span>
         <span id="divideSign"></span>
         <span id="divisorTemp"></span>
         <span id="equals"></span>
         <span id="solution"></span>
         <br>
-        <div class="rechenweg" id="rechenweg"></div>
+        <div class="rechenweg" id="rechenweg">
+
+        </div>
     </div>
 </div>
 

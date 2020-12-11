@@ -31,7 +31,16 @@
 }
 
 .calculation_field {
-    width: 100%;
+    width: 500px;
     height: 500px;
     background-color: #7fffd4;
+    margin: 0 auto;
+}
+
+.dividendTemp {
+    margin-left: 170px;
+}
+
+.rechenweg {
+    margin-left: 170px;
 }

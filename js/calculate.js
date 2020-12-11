@@ -22,7 +22,7 @@ document.getElementById("divisor").addEventListener("blur", function () {
 
 document.getElementById("submit").addEventListener("click", function () {
     /*TODO:
-      -ausgabe formatieren
+      -ausgabe formatieren -> die ausgabe in das result span geben
       - schaen was der fehler ist bei zb 2002:2 oder 900/3
    */
     /**
@@ -47,7 +47,7 @@ document.getElementById("submit").addEventListener("click", function () {
 
     //TODO: überprüfen != leer
     var i = 0;
-    while (dividend !== 0) { //olbm no folsch.... geht lei für rehcnungen de aufgeghen
+    while (counterSString.counter <= dividendInit.length) {
         alert("Oben: " + counterSString.counter);
         dividend = calculate(counterSString, dividend, divisor, dividendInit);
         i++;
@@ -68,7 +68,9 @@ function calculate(counterSString, dividend, divisor, dividendInit) {
             nextNumber = resSub.toString() + nextNumber;                                //und neben dem ergebnis der subtraktion schreiben bzw. vereinen 3(erg sub)   4(heruntergeholt) --> 34
             alert(nextNumber);
             document.getElementById("solution").innerHTML += result.toString();
-            document.getElementById("rechenweg").innerHTML += resMul + "<br>" + nextNumber + "<br>";
+            let spanRow = document.createElement("span");
+            spanRow.innerHTML = resMul + "<br>" + nextNumber + "<br>";
+            document.getElementById("rechenweg").appendChild(spanRow);
             return nextNumber;
         }
         counterSString.counter++;
