@@ -25,9 +25,7 @@
         <span id="equals"></span>
         <span id="solution"></span>
         <br>
-        <div class="rechenweg" id="rechenweg">
-
-        </div>
+        <div class="rechenweg" id="rechenweg"></div>
     </div>
 </div>
 

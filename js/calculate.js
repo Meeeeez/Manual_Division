@@ -22,8 +22,9 @@ document.getElementById("divisor").addEventListener("blur", function () {
 
 document.getElementById("submit").addEventListener("click", function () {
     /*TODO:
-      -ausgabe formatieren -> die ausgabe in das result span geben
+      -überprüfen textfeld != leer
       - schaen was der fehler ist bei zb 2002:2 oder 900/3
+      - wenn ergebnis von division kleiner als 1 soll 0 geschrieben werden
    */
     /**
      result -> ergebnis, wird stück für stück aufgebaut.....1.....12.....123
@@ -37,7 +38,8 @@ document.getElementById("submit").addEventListener("click", function () {
     let dividend = document.getElementById("dividend").value;
     let dividendInit = dividend;
     let counterSString = {
-        counter: 0
+        counter: 0,
+        marginLeft: 0
     };
 
     if(parseInt(divisor) === 0){
@@ -45,32 +47,53 @@ document.getElementById("submit").addEventListener("click", function () {
         return;
     }
 
-    //TODO: überprüfen != leer
     var i = 0;
     while (counterSString.counter <= dividendInit.length) {
-        alert("Oben: " + counterSString.counter);
+        //alert("Oben: " + counterSString.counter);
         dividend = calculate(counterSString, dividend, divisor, dividendInit);
         i++;
     }
 });
 
 function calculate(counterSString, dividend, divisor, dividendInit) {
-    let nextNumber, result, resMul, resSub;
-    while (counterSString.counter <= dividend.length) {
+    let nextNumber, result, resMul, resSub, dividendString = "" + dividend;
+
+    while (counterSString.counter <= dividendInit.length) {
         counterSString.counter++;
-        alert("Unten: " + counterSString.counter);
-        result = dividend.substr(0, counterSString.counter + 1) / divisor;                  //substring durch divisor teilen
+        //alert("Unten: " + counterSString.counter);
+        result = dividendString.substr(0, counterSString.counter + 1) / divisor;                  //substring durch divisor teilen
         if (result >= 1) {                                                            //wenn das ergebnis größer 1 ist haben wir den ersten substring der hinein geht
             result = Math.floor(result);                                             //runden 1.023 --> 1, 2,99999 --> 2
             resMul = result * divisor;                                               //divisor mit ergebnis multiplizieren
-            resSub = dividend.substr(0, counterSString.counter + 1) - resMul;               //den substring - das ergebnis der multiplikation
+            resSub = dividendString.substr(0, counterSString.counter + 1) - resMul;               //den substring - das ergebnis der multiplikation
             nextNumber = dividendInit.substring(counterSString.counter + 1, counterSString.counter + 2);   //neue ziffer herunterholen
             nextNumber = resSub.toString() + nextNumber;                                //und neben dem ergebnis der subtraktion schreiben bzw. vereinen 3(erg sub)   4(heruntergeholt) --> 34
-            alert(nextNumber);
+            //alert(nextNumber);
+
             document.getElementById("solution").innerHTML += result.toString();
-            let spanRow = document.createElement("span");
-            spanRow.innerHTML = resMul + "<br>" + nextNumber + "<br>";
-            document.getElementById("rechenweg").appendChild(spanRow);
+            let textRow1 = document.createElement("p");
+            let textRow2 = document.createElement("p");
+
+            let margin = 0;
+            for(var i = 0; i <= dividendInit.length; i++){
+                if(counterSString.counter === i) {
+                    textRow1.style.margin = "0px 0px 0px " + margin + "px";
+                    margin += 10;
+                    textRow2.style.margin = "0px 0px 0px " + margin + "px";
+                }else if(counterSString.counter === 1){
+                    textRow1.style.margin = "0px 0px 0px 0px";
+                    textRow2.style.margin = "0px 0px 0px 10px";
+                }
+                else {
+                    margin += 10;
+                }
+            }
+
+            textRow1.innerHTML = resMul;
+            textRow2.innerHTML = nextNumber;
+            document.getElementById("rechenweg").appendChild(textRow1);
+            document.getElementById("rechenweg").appendChild(textRow2);
+
             return nextNumber;
         }
         counterSString.counter++;
