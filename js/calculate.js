@@ -22,15 +22,10 @@ document.getElementById("divisor").addEventListener("blur", function () {
 
 document.getElementById("submit").addEventListener("click", function () {
     /*TODO:
-      -überprüfen textfeld != leer
       - schaen was der fehler ist bei zb 2002:2 oder 900/3
       - wenn ergebnis von division kleiner als 1 soll 0 geschrieben werden
    */
-    /**
-     result -> ergebnis, wird stück für stück aufgebaut.....1.....12.....123
-     resMul -> die zahl die unter der gerade geteilten hergeschreiben wird sie wird zur berechung er nächsten gebraucht, (teilergebnis von der division * divisor)
-     resSub -> die zahl die heraus kommt wenn man resSub calc von dem substring abzieht (für nächste division)
-     */
+
     document.getElementById("solution").innerHTML = "";
     document.getElementById("rechenweg").innerHTML = "";
 
@@ -46,12 +41,15 @@ document.getElementById("submit").addEventListener("click", function () {
         alert("Divisor can't be 0");
         return;
     }
-
-    var i = 0;
-    while (counterSString.counter <= dividendInit.length) {
-        //alert("Oben: " + counterSString.counter);
-        dividend = calculate(counterSString, dividend, divisor, dividendInit);
-        i++;
+    if(Number.isNaN(parseInt(dividend)) || Number.isNaN(parseInt(divisor))){
+        alert("Error: Wrong Input");
+    }else {
+        let i = 0;
+        while (counterSString.counter <= dividendInit.length) {
+            //alert("Oben: " + counterSString.counter);
+            dividend = calculate(counterSString, dividend, divisor, dividendInit);
+            i++;
+        }
     }
 });
 
@@ -74,18 +72,11 @@ function calculate(counterSString, dividend, divisor, dividendInit) {
             let textRow1 = document.createElement("p");
             let textRow2 = document.createElement("p");
 
-            let margin = 0;
-            for(var i = 0; i <= dividendInit.length; i++){
-                if(counterSString.counter === i) {
-                    textRow1.style.margin = "0px 0px 0px " + margin + "px";
-                    margin += 10;
-                    textRow2.style.margin = "0px 0px 0px " + margin + "px";
-                }else if(counterSString.counter === 1){
-                    textRow1.style.margin = "0px 0px 0px 0px";
-                    textRow2.style.margin = "0px 0px 0px 10px";
-                }
-                else {
-                    margin += 10;
+            for(let i = 0; i <= dividendInit.length; i++){      //formatieren
+                if(counterSString.counter === i){
+                    textRow1.style.margin = "0px 0px 0px " + counterSString.marginLeft +"px";
+                    counterSString.marginLeft += 10;
+                    textRow2.style.margin = "0px 0px 0px " + counterSString.marginLeft +"px";
                 }
             }
 
