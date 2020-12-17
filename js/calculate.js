@@ -39,6 +39,7 @@ document.getElementById("submit").addEventListener("click", function () {
     let counterSString = {
         counter: 0,
         marginLeft: 0,
+        counterText: 1,
         explanationText: document.getElementById("explainationText")
     };
 
@@ -78,16 +79,28 @@ function calculate(counterSString, dividend, divisor, dividendInit) {
         result = dividendString.substr(0, counterSString.counter + 1) / divisor;                  //substring durch divisor teilen
         if (result >= 1) {                                                            //wenn das ergebnis größer 1 ist haben wir den ersten substring der hinein geht
             result = Math.floor(result);                                             //runden 1.023 --> 1, 2,99999 --> 2
+
+            counterSString.explanationText.innerHTML += ("<b>" + counterSString.counterText + ". Schritt:</b> <br>");
+            counterSString.counterText++;
             counterSString.explanationText.innerHTML += ("Wir suchen die erste Zahl bzw. Ziffer des Dividenden, die durch den Divisor teilbar ist.<br>In dem Fall: " + dividendString.substr(0, counterSString.counter + 1) + "<br>");
+
             resMul = result * divisor;                                               //divisor mit ergebnis multiplizieren
+            counterSString.explanationText.innerHTML += ("<b>" + counterSString.counterText + ". Schritt:</b> <br>");
+            counterSString.counterText++;
             counterSString.explanationText.innerHTML += ("Wir multiplizieren die eben erhaltene Zahl/Ziffer mit dem Divisor <br>" + result + " * " + divisor + " = " + resMul + "<br>");
+
             resSub = dividendString.substr(0, counterSString.counter + 1) - resMul;               //den substring - das ergebnis der subtrahieren
+            counterSString.explanationText.innerHTML += ("<b>" + counterSString.counterText + ". Schritt:</b> <br>");
+            counterSString.counterText++;
             counterSString.explanationText.innerHTML += ("Wir subtrahieren die beiden Zahlen um den Rest herauszufinden<br>" + dividendString.substr(0, counterSString.counter + 1) + " - " + resMul + " = " + resSub + "<br>");
+
             nextNumber = dividendInit.substring(counterSString.counter + 1, counterSString.counter + 2);   //neue ziffer herunterholen
 
             if(nextNumber === ""){
-                counterSString.explanationText.innerHTML += ("Fertig, wir haben es geschafft!<br>");
+                counterSString.explanationText.innerHTML += ("<b>Fertig, wir haben es geschafft!</b><br>");
             }else{
+                counterSString.explanationText.innerHTML += ("<b>" + counterSString.counterText + ". Schritt:</b> <br>");
+                counterSString.counterText++;
                 counterSString.explanationText.innerHTML += ("Wir holen uns die Nächste Zahl herunter<br>Nächste Zahl = " + nextNumber + "<br>");
             }
 

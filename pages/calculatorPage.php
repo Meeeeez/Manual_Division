@@ -107,7 +107,7 @@
         }
 
         .lblTS {
-            margin-left: 180px;
+            margin-left: 320px;
             font-family: Calibri, sans-serif;
             font-size: 19px;
         }
@@ -173,7 +173,7 @@
         }
         .h3Ex{
             margin-top: 10px;
-            margin-left: 290px;
+            margin-left: 300px;
             margin-bottom: 5px;
             font-family: Calibri, sans-serif;
             font-size: 25px;
@@ -220,14 +220,13 @@
 
     <div id="explaination_field" class="explaination_field">
         <div class="sliderDiv">
-            <h3 class="h3Ex">Erklärungen</h3>
+            <h3 class="h3Ex">Erklärung</h3>
             <hr>
-            <label class="lblTS" for="toggleSwitch">off/on</label>
+            <label class="lblTS" for="toggleSwitch"></label>
             <label class="switch">
                 <input type="checkbox" id="toggleSwitch" onclick="displayExplanationText()">
                 <span class="slider round"></span>
             </label>
-            <button class="btnNext" id="showNextStep">Nächster Schritt</button>
         </div>
         <div>
             <p class="explanationText" id="explainationText"></p>

@@ -15,7 +15,7 @@
         a,
         a:focus,
         a:hover {
-            color: #fff;
+            color: royalblue;
         }
 
         h1 {
@@ -25,23 +25,21 @@
             color: black;
         }
         a {
-            color: black;
+            color: dodgerblue;
         }
 
         .btn-default,
         .btn-default:focus {
-            color: #333;
+            color: dodgerblue;
             background-color: #fff;
             border: 1px solid #fff;
         }
 
         .btn-default:hover {
-            color: #333;
-            background-color: #d0d0d0;
+            color: dodgerblue;
+            background-color: #f5f5f5;
         }
 
-
-        html,
         body {
             height: 100%;
             background-color: #fff;
@@ -52,13 +50,11 @@
         }
 
         .site-wrapper {
-            display: table;
             width: 100%;
-            height: 600px;
+            height: 500px;
             background-color: #EBEDF1;     //hintergrundfarbe
         }
         .site-wrapper-inner {
-            display: table-cell;
             vertical-align: top;
         }
 
@@ -74,29 +70,35 @@
         .masthead-nav > li {
             display: inline-block;
         }
+
         .masthead-nav > li + li {
             margin-left: 20px;
         }
+
         .masthead-nav > li > a {
             padding-right: 0;
             padding-left: 0;
             font-size: 16px;
             font-weight: bold;
-            color: #fff;
-            color: rgba(255,255,255,.75);
+            color: dodgerblue;
             border-bottom: 2px solid transparent;
         }
+
         .masthead-nav > li > a:hover,
         .masthead-nav > li > a:focus {
             background-color: transparent;
-            border-bottom-color: #a9a9a9;
-            border-bottom-color: rgba(255, 255, 255, 0.25);
+            color: royalblue;
+            border-bottom-color: royalblue;
         }
-        .masthead-nav > .active > a,
-        .masthead-nav > .active > a:hover,
-        .masthead-nav > .active > a:focus {
-            color: #fff;
-            border-bottom-color: #fff;
+
+        .masthead-nav > .active > a {
+            color: dodgerblue;
+            border-bottom-color: dodgerblue;
+        }
+
+        .masthead-nav > .active > a:hover,{
+            color: royalblue;
+            border-bottom-color: royalblue;
         }
 
         @media (min-width: 768px) {
@@ -108,24 +110,28 @@
             }
         }
 
-        .cover {
+        .inner-cover {
             padding: 0 20px;
         }
-        .cover .btn-lg {
+        .inner-cover .btn-lg {
             padding: 10px 20px;
             font-weight: bold;
         }
 
         @media (min-width: 768px) {
             .masthead {
-                position: fixed;
+                position: sticky;
                 top: 0;
             }
             .site-wrapper-inner {
                 vertical-align: middle;
             }
-
         }
+
+        .inner-cover {
+            margin-top: 85px;
+        }
+
         .jumbotron {
             background-color: dodgerblue;
             height: 600px;
@@ -154,7 +160,7 @@
                 </div>
             </div>
 
-            <div class="inner cover">
+            <div class="inner-cover">
                 <h1 class="cover-heading">Schriftliche Division jetzt auch digital!</h1>
                 <p class="lead">Moritz's Online Rechner ist ein einfacher Rechner der es ermöglicht, sich die schriftliche Division online und mit Lösungsweg vorrechnen zu lassen.</p>
                 <p class="lead">
