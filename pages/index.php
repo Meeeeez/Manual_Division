@@ -1,217 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Schriftliche Division</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <style>
-        .input {
-            width: 100%;
-            height: 100px;
+        a,
+        a:focus,
+        a:hover {
+            color: #fff;
         }
 
-        .input_form {
-            display: flex;
-            flex-flow: row wrap;
-            align-items: center;
-            justify-content: center;
+        h1 {
+            color: black;
+        }
+        p {
+            color: black;
+        }
+        a {
+            color: black;
         }
 
-        .input_form label {
-            margin: 5px 10px 5px 0;
-        }
-
-        .input_form input {
-            vertical-align: middle;
-            margin: 5px 10px 5px 0;
-            padding: 10px;
+        .btn-default,
+        .btn-default:focus {
+            color: #333;
             background-color: #fff;
-            border: 1px solid #ddd;
+            border: 1px solid #fff;
         }
 
-        .input_form button {
+        .btn-default:hover {
+            color: #333;
+            background-color: #d0d0d0;
+        }
+
+
+        html,
+        body {
+            height: 100%;
+            background-color: #fff;
+        }
+        body {
+            color: #fff;
+            text-align: center;
+        }
+
+        .site-wrapper {
+            display: table;
+            width: 100%;
+            height: 600px;
+            background-color: #EBEDF1;     //hintergrundfarbe
+        }
+        .site-wrapper-inner {
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        .inner {
+            padding: 30px;
+        }
+
+        .masthead-brand {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .masthead-nav > li {
+            display: inline-block;
+        }
+        .masthead-nav > li + li {
+            margin-left: 20px;
+        }
+        .masthead-nav > li > a {
+            padding-right: 0;
+            padding-left: 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            color: rgba(255,255,255,.75);
+            border-bottom: 2px solid transparent;
+        }
+        .masthead-nav > li > a:hover,
+        .masthead-nav > li > a:focus {
+            background-color: transparent;
+            border-bottom-color: #a9a9a9;
+            border-bottom-color: rgba(255, 255, 255, 0.25);
+        }
+        .masthead-nav > .active > a,
+        .masthead-nav > .active > a:hover,
+        .masthead-nav > .active > a:focus {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .masthead-brand {
+                float: left;
+            }
+            .masthead-nav {
+                float: right;
+            }
+        }
+
+        .cover {
+            padding: 0 20px;
+        }
+        .cover .btn-lg {
             padding: 10px 20px;
+            font-weight: bold;
+        }
+
+        @media (min-width: 768px) {
+            .masthead {
+                position: fixed;
+                top: 0;
+            }
+            .site-wrapper-inner {
+                vertical-align: middle;
+            }
+
+        }
+        .jumbotron {
             background-color: dodgerblue;
-            border: 1px solid #ddd;
-            color: white;
-            cursor: pointer;
+            height: 600px;
         }
-
-        .input_form button:hover {
-            background-color: royalblue;
-        }
-
-        .btnNext {
-            display: inline-block;
-            margin-left: 90px;
-            padding: 10px 30px;
-            background-color: dodgerblue;
-            border: 1px solid #ddd;
-            color: white;
-            cursor: pointer;
-        }
-
-        .btnNext:hover{
-            background-color: royalblue;
-        }
-
-        .calculation_field {
-            margin-left: 70px;
-            display: inline-block;
-            width: 500px;
-            height: 1000px;
-            background-color: #7fffd4;
-            float: left;
-        }
-
-        .explaination_field {
-            margin-right: 70px;
-            display: inline-block;
-            width: 700px;
-            height: 1000px;
-            background-color: #7fffd4;
-            float: right;
-        }
-
-        .calculation_field::after{
-            display: table;
-            content: "";
-            clear: both;
-        }
-
-        .explaination_field::after {
-            display: table;
-            content: "";
-            clear: both;
-        }
-
-        .dividendTemp {
-            margin-left: 170px;
-        }
-
-        .rechenweg {
-            margin-left: 170px;
-        }
-
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        .lblTS {
-            margin-left: 180px;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .2s;
-            transition: .2s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        input:checked + .slider {
-            background-color: #2196F3;
-        }
-
-        input:focus + .slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked + .slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
-        }
-
-        .slider {
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            border-radius: 50%;
-        }
-
-        .h3R {
-            margin-top: 10px;
-            margin-left: 200px;
-        }
-        .h3Ex{
-            margin-top: 10px;
-            margin-left: 290px;
-        }
-
-        .explanationText {
-            margin-left: 15px;
-        }
-
     </style>
-
 </head>
-
 <body>
-<div class="main_container">
-    <div class="input">
-        <div class="input_form">
-            <input type="text" id="dividend" placeholder="Dividend" name="dividend">
-            <label for="divisor">:</label>
-            <input type="text" id="divisor" placeholder="Divisor" name="divisor">
-            <button id="submit">Berechnen</button>
-        </div>
-        <br>
-    </div>
 
-    <div id="calculation_field" class="calculation_field">
-        <h3 class="h3R">Rechnung</h3>
-        <span class="dividendTemp" id="dividendTemp"></span>
-        <span id="divideSign"></span>
-        <span id="divisorTemp"></span>
-        <span id="equals"></span>
-        <span id="solution"></span>
-        <script src="../js/calculate.js"></script>
-        <div class="rechenweg" id="rechenweg"></div>
-    </div>
+<div class="site-wrapper">
 
-    <div id="explaination_field" class="explaination_field">
-        <div class="sliderDiv">
-            <h3 class="h3Ex">Erklärungen</h3>
-            <label class="lblTS" for="toggleSwitch">Off/On</label>
-            <label class="switch">
-                <input type="checkbox" id="toggleSwitch" onclick="displayExplanationText()">
-                <span class="slider round"></span>
-            </label>
-            <button class="btnNext" id="showNextStep">Nächster Schritt</button>
-        </div>
-        <div>
-            <p class="explanationText" id="explainationText" style="display: none"></p>
-        </div>
-    </div>
+    <div class="site-wrapper-inner">
 
+        <div class="container">
+
+            <div class="masthead clearfix">
+                <div class="container inner">
+                    <h3 class="masthead-brand">
+                        <a href="calculatorPage.php">Moritz's Online Rechner</a>
+                    </h3>
+                    <nav>
+                        <ul class="nav masthead-nav">
+                            <li class="active"><a href="index.php">Home</a></li>
+                            <li><a href="calculatorPage.php">Online Rechner</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="inner cover">
+                <h1 class="cover-heading">Schriftliche Division jetzt auch digital!</h1>
+                <p class="lead">Moritz's Online Rechner ist ein einfacher Rechner der es ermöglicht, sich die schriftliche Division online und mit Lösungsweg vorrechnen zu lassen.</p>
+                <p class="lead">
+                    <a href="calculatorPage.php" class="btn btn-lg btn-default">Rechnen!</a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="jumbotron text-center">
+    <h1>How Does It Work?</h1>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src=""></iframe>          //video
+    </div>
 </div>
 </body>
 </html>
