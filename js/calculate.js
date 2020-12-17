@@ -24,10 +24,13 @@ document.getElementById("submit").addEventListener("click", function () {
     /*TODO:
       - schaen was der fehler ist bei zb 2002:2 oder 900/3
       - wenn ergebnis von division kleiner als 1 soll 0 geschrieben werden
+      - edge case 123423545235325 : 13
    */
 
     document.getElementById("solution").innerHTML = "";
     document.getElementById("rechenweg").innerHTML = "";
+
+    let toggleSwitch = document.getElementById("toggleSwitch");
 
     let divisor = document.getElementById("divisor").value;
     let dividend = document.getElementById("dividend").value;

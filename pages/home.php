@@ -42,7 +42,7 @@
             display: table;
             width: 100%;
             height: 600px;
-            background-color: #333;     //hintergrundfarbe
+            background-color: #064179;     //hintergrundfarbe
         }
         .site-wrapper-inner {
             display: table-cell;
@@ -114,6 +114,12 @@
 
         }
 
+        .jumbotron {
+            background-color: #282828;
+            height: 600px;
+        }
+
+
     </style>
 </head>
 <body>
@@ -133,6 +139,8 @@
                         <ul class="nav masthead-nav">
                             <li class="active"><a href="home.php">Home</a></li>
                             <li><a href="index.php">Online Rechner</a></li>
+                            <li class="active"><a href="home.php">Home</a></li>
+                            <li><a href="index.php?type=explaination">Rechner mit Schritten</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -148,6 +156,13 @@
 
         </div>
 
+    </div>
+</div>
+<div class="jumbotron text-center">
+    <h1>How Does It Work?</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto dolor eveniet fugiat ipsum nulla obcaecati quae quaerat tempora ullam. Aperiam at cum inventore, libero nostrum repellendus repudiandae tempore unde voluptate.</p>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src=""></iframe>          //video
     </div>
 </div>
 </body>
