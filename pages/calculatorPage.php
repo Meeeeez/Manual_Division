@@ -47,7 +47,7 @@
             background-color: royalblue;
         }
 
-        .btnNext {
+        /*.btnNext { imfall dass es schrittweise braucht
             display: inline-block;
             margin-left: 90px;
             padding: 10px 30px;
@@ -59,7 +59,7 @@
 
         .btnNext:hover{
             background-color: royalblue;
-        }
+        }*/
 
         .calculation_field {
             margin-left: 70px;
@@ -89,14 +89,6 @@
             display: table;
             content: "";
             clear: both;
-        }
-
-        .dividendTemp {
-            margin-left: 170px;
-        }
-
-        .rechenweg {
-            margin-left: 170px;
         }
 
         .switch {
@@ -190,6 +182,10 @@
             font-family: Calibri, sans-serif;
             font-size: 20px;
         }
+
+        .calculation {
+            margin-left: 20px;
+        }
     </style>
 
 </head>
@@ -209,13 +205,15 @@
     <div id="calculation_field" class="calculation_field">
         <h3 class="h3R">Rechnung</h3>
         <hr>
-        <span class="dividendTemp" id="dividendTemp"></span>
-        <span id="divideSign"></span>
-        <span id="divisorTemp"></span>
-        <span id="equals"></span>
-        <span id="solution"></span>
-        <script src="../js/calculate.js"></script>
-        <div class="rechenweg" id="rechenweg"></div>
+        <div class="calculation">
+            <span class="dividendTemp" id="dividendTemp"></span>
+            <span id="divideSign"></span>
+            <span id="divisorTemp"></span>
+            <span id="equals"></span>
+            <span id="solution"></span>
+            <script src="../js/calculate.js"></script>
+            <div class="rechenweg" id="rechenweg"></div>
+        </div>
     </div>
 
     <div id="explaination_field" class="explaination_field">
