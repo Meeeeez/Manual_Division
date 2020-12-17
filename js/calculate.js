@@ -30,14 +30,15 @@ document.getElementById("submit").addEventListener("click", function () {
     document.getElementById("solution").innerHTML = "";
     document.getElementById("rechenweg").innerHTML = "";
 
-    let toggleSwitch = document.getElementById("toggleSwitch");
-
     let divisor = document.getElementById("divisor").value;
     let dividend = document.getElementById("dividend").value;
     let dividendInit = dividend;
+
+
     let counterSString = {
         counter: 0,
-        marginLeft: 0
+        marginLeft: 0,
+        explanationText: document.getElementById("explainationText")
     };
 
     if(parseInt(divisor) === 0){
@@ -56,6 +57,16 @@ document.getElementById("submit").addEventListener("click", function () {
     }
 });
 
+function displayExplanationText(){
+    let toggleSwitch = document.getElementById("toggleSwitch")
+    let explanationText = document.getElementById("explainationText");
+    if (toggleSwitch.checked){
+        explanationText.style.display = "block";
+    }else{
+        explanationText.style.display = "none";
+    }
+}
+
 function calculate(counterSString, dividend, divisor, dividendInit) {
     let nextNumber, result, resMul, resSub, dividendString = "" + dividend;
 
@@ -65,9 +76,19 @@ function calculate(counterSString, dividend, divisor, dividendInit) {
         result = dividendString.substr(0, counterSString.counter + 1) / divisor;                  //substring durch divisor teilen
         if (result >= 1) {                                                            //wenn das ergebnis größer 1 ist haben wir den ersten substring der hinein geht
             result = Math.floor(result);                                             //runden 1.023 --> 1, 2,99999 --> 2
+            counterSString.explanationText.innerHTML += ("Wir suchen die erste Zahl bzw. Ziffer des Dividenden, die durch den Divisor teilbar ist.<br>Ergebnis: " + result + "<br>");
             resMul = result * divisor;                                               //divisor mit ergebnis multiplizieren
-            resSub = dividendString.substr(0, counterSString.counter + 1) - resMul;               //den substring - das ergebnis der multiplikation
+            counterSString.explanationText.innerHTML += ("Wir multiplizieren das eben erhaltene Ergebnis mit dem Divisor <br>" + result + " * " + divisor + " = " + resMul + "<br>");
+            resSub = dividendString.substr(0, counterSString.counter + 1) - resMul;               //den substring - das ergebnis der subtrahieren
+            counterSString.explanationText.innerHTML += ("Wir subtrahieren die beiden Zahlen um den Rest herauszufinden<br>" + dividendString.substr(0, counterSString.counter + 1) + " - " + resMul + " = " + resSub + "<br>");
             nextNumber = dividendInit.substring(counterSString.counter + 1, counterSString.counter + 2);   //neue ziffer herunterholen
+
+            if(nextNumber === ""){
+                counterSString.explanationText.innerHTML += ("Fertig, wir haben es geschafft!<br>");
+            }else{
+                counterSString.explanationText.innerHTML += ("Wir holen uns die Nächste Zahl herunter<br>Nächste Zahl = " + nextNumber + "<br>");
+            }
+
             nextNumber = resSub.toString() + nextNumber;                                //und neben dem ergebnis der subtraktion schreiben bzw. vereinen 3(erg sub)   4(heruntergeholt) --> 34
             //alert(nextNumber);
 

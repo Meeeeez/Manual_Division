@@ -59,8 +59,8 @@
         .calculation_field {
             margin-left: 70px;
             display: inline-block;
-            width: 600px;
-            height: 480px;
+            width: 500px;
+            height: 1000px;
             background-color: #7fffd4;
             float: left;
         }
@@ -68,8 +68,8 @@
         .explaination_field {
             margin-right: 70px;
             display: inline-block;
-            width: 600px;
-            height: 480px;
+            width: 700px;
+            height: 1000px;
             background-color: #7fffd4;
             float: right;
         }
@@ -102,7 +102,7 @@
         }
 
         .lblTS {
-            margin-left: 130px;
+            margin-left: 180px;
         }
 
         .switch input {
@@ -157,14 +157,19 @@
             border-radius: 50%;
         }
 
-        .h3Ex {
-            margin-left: 250px;
-            margin-top: 10px;
-        }
         .h3R {
             margin-top: 10px;
-            margin-left: 250px;
+            margin-left: 200px;
         }
+        .h3Ex{
+            margin-top: 10px;
+            margin-left: 290px;
+        }
+
+        .explanationText {
+            margin-left: 15px;
+        }
+
     </style>
 
 </head>
@@ -195,12 +200,15 @@
     <div id="explaination_field" class="explaination_field">
         <div class="sliderDiv">
             <h3 class="h3Ex">Erklärungen</h3>
-            <label class="lblTS" for="toggleSwitch">On/Off</label>
+            <label class="lblTS" for="toggleSwitch">Off/On</label>
             <label class="switch">
-                <input type="checkbox" id="toggleSwitch">
+                <input type="checkbox" id="toggleSwitch" onclick="displayExplanationText()">
                 <span class="slider round"></span>
             </label>
             <button class="btnNext" id="showNextStep">Nächster Schritt</button>
+        </div>
+        <div>
+            <p class="explanationText" id="explainationText" style="display: none"></p>
         </div>
     </div>
 
