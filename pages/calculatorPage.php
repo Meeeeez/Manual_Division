@@ -176,6 +176,12 @@
             display: none;
             font-family: Calibri, sans-serif;
             font-size: 20px;
+            float: left;
+        }
+        .explanationText::after {
+            content: "";
+            display: table;
+            clear: both;
         }
 
         .calculation_field span {
@@ -185,6 +191,12 @@
 
         .calculation {
             margin-left: 20px;
+            float: left;
+        }
+        .calculation::after {
+            content: "";
+            clear: both;
+            display: table;
         }
     </style>
 

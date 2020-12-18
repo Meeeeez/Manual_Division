@@ -85,6 +85,7 @@ function calculate(counterSString, dividend, divisor, dividendInit) {
             counterSString.explanationText.innerHTML += ("Wir suchen die erste Zahl bzw. Ziffer des Dividenden, die durch den Divisor teilbar ist.<br>In dem Fall: " + dividendString.substr(0, counterSString.counter + 1) + "<br>");
 
             resMul = result * divisor;                                               //divisor mit ergebnis multiplizieren
+            window.value = resMul;
             counterSString.explanationText.innerHTML += ("<b>" + counterSString.counterText + ". Schritt:</b> <br>");
             counterSString.counterText++;
             counterSString.explanationText.innerHTML += ("Wir multiplizieren die eben erhaltene Zahl/Ziffer mit dem Divisor <br>" + result + " * " + divisor + " = " + resMul + "<br>");
@@ -110,13 +111,33 @@ function calculate(counterSString, dividend, divisor, dividendInit) {
             document.getElementById("solution").innerHTML += result.toString();
             let textRow1 = document.createElement("p");
             let textRow2 = document.createElement("p");
+            let divider = document.createElement('hr');
+
+            if(window.value.toString().length === 2){               //länge des teiler strich bestimmen
+                divider.style.width = "22px";
+            }else if(window.value.toString().length === 4){
+                divider.style.width = "44px";
+            }else if(window.value.toString().length === 3) {
+                divider.style.width = "33px";
+            }else if(window.value.toString().length === 5) {
+                divider.style.width = "55px";
+            }else if(window.value.toString().length === 1) {
+                divider.style.width = "11px";
+            }
+
+            divider.style.height = "1.5px";
+            divider.style.margin = "0px 0px 0px 0px";
+            divider.style.border = "none";
+            divider.style.backgroundColor = "black";
 
             for(let i = 0; i <= dividendInit.length; i++){      //formatieren
                 if(counterSString.counter === i){
                     textRow1.style.margin = "0px 0px 0px " + counterSString.marginLeft +"px";
-                    counterSString.marginLeft += 10;
-                    textRow2.style.margin = "0px 0px 0px " + counterSString.marginLeft +"px";
+                    divider.style.margin = "0px 0px 0px " + counterSString.marginLeft + "px";
 
+                    counterSString.marginLeft += 10;
+
+                    textRow2.style.margin = "0px 0px 0px " + counterSString.marginLeft +"px";
                     textRow1.style.fontFamily = "Calibri, sans-serif";
                     textRow1.style.fontSize = "20px";
 
@@ -128,6 +149,7 @@ function calculate(counterSString, dividend, divisor, dividendInit) {
             textRow1.innerHTML = resMul;
             textRow2.innerHTML = nextNumber;
             document.getElementById("rechenweg").appendChild(textRow1);
+            document.getElementById("rechenweg").appendChild(divider);
             document.getElementById("rechenweg").appendChild(textRow2);
 
             return nextNumber;

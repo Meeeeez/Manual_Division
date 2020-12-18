@@ -149,7 +149,7 @@
             <div class="masthead clearfix">
                 <div class="container inner">
                     <h3 class="masthead-brand">
-                        <a href="calculatorPage.php">Moritz's Online Rechner</a>
+                        <a href="index.php">Moritz's Online Rechner</a>
                     </h3>
                     <nav>
                         <ul class="nav masthead-nav">
@@ -164,7 +164,7 @@
                 <h1 class="cover-heading">Schriftliche Division jetzt auch digital!</h1>
                 <p class="lead">Moritz's Online Rechner ist ein einfacher Rechner der es ermöglicht, sich die schriftliche Division online und mit Lösungsweg vorrechnen zu lassen.</p>
                 <p class="lead">
-                    <a href="calculatorPage.php" class="btn btn-lg btn-default">Rechnen!</a>
+                    <a href="calculatorPage.php" class="btn btn-lg btn-default">Dividieren!</a>
                 </p>
             </div>
 
@@ -175,7 +175,7 @@
 <div class="jumbotron text-center">
     <h1>How Does It Work?</h1>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src=""></iframe>          //video
+        <iframe class="embed-responsive-item" src=""></iframe>
     </div>
 </div>
 </body>
