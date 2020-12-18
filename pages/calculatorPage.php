@@ -74,7 +74,6 @@
             margin-right: 70px;
             display: inline-block;
             width: 700px;
-            height: 1000px;
             background-color: white;
             float: right;
         }
@@ -96,6 +95,7 @@
             display: inline-block;
             width: 60px;
             height: 34px;
+            margin-bottom: 8px;
         }
 
         .lblTS {
